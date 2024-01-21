@@ -36,11 +36,11 @@ void main() {
     },
     {
       "name": "R-02",
-      "formal_name": "Route 2 (Power House to Indus Hospital)",
+      "formal_name": "Route 2 (Power House Chowrangi to Indus Hospital)",
       "route_km": "30 kms",
       "no_stations": "23",
       'stop_list': [
-        "Power House",
+        "Power House Chowrangi",
         "UP Mor",
         "Nagan Chowrangi",
         "Shafiq Mor",
@@ -69,16 +69,16 @@ void main() {
     },
     {
       "name": "R-03",
-      "formal_name": "Route 3 (Power House to Shaan Chowrangi)",
+      "formal_name": "Route 3 (Power House Chowrangi to Shaan Chowrangi)",
       "route_km": "31 kms",
       "no_stations": "31",
       "stop_list": [
-        "Power House",
+        "Power House Chowrangi",
         "UP Mor",
         "Nagan Chowrangi",
-        "Erum Shopping",
+        "Erum Shopping Mall",
         "Sakhi Hasan Chowrangi",
-        "Five Star  Chowrangi",
+        "Five Star Chowrangi",
         "Hyderi",
         "KDA Chowrangi",
         "Board Office",
@@ -109,11 +109,11 @@ void main() {
     },
     {
       "name": "R-04",
-      "formal_name": "Route 4 (Power House to Tower)",
+      "formal_name": "Route 4 (Power House Chowrangi to Tower)",
       "route_km": "21 kms",
       "no_stations": "20",
       "stop_list": [
-        "Power House",
+        "Power House Chowrangi",
         "UP Mor",
         "Nagan Chowrangi",
         "Shafiq Mor",
@@ -124,7 +124,7 @@ void main() {
         "Daak Khana",
         "Teen Hatti",
         "Jehangir Road",
-        "Numaish Chowrangi",
+        "Numaish",
         "Tibet Center",
         "Mobile Market",
         "Urdu Bazar",
@@ -183,11 +183,11 @@ void main() {
     },
     {
       "name": "R-10",
-      "formal_name": "Route 10 (Numaish Chowrangi to Ibrahim Hyderi)",
+      "formal_name": "Route 10 (Numaish to Ibrahim Hyderi)",
       "route_km": "28 kms",
       "no_stations": "15",
       "stop_list": [
-        "Numaish Chowrangi",
+        "Numaish",
         "Tibet Center",
         "Mobile Market",
         "Metropole",
@@ -263,12 +263,163 @@ void main() {
         "Lucky Star Saddar",
       ],
     },
+    {
+      "name": "EV-01",
+      "formal_name": "Electric Bus 1 (CMH Malir Cantt to Dolmen Mall Clifton)",
+      "route_km": "28 kms",
+      "no_stations": "24",
+      "stop_list": [
+        "CMH Malir Cantt",
+        "Tank Chowk",
+        "Model Colony Mor",
+        "Jinnah Ave",
+        "Airport",
+        "Colony Gate",
+        "Nata Khan Bridge",
+        "Drigh Road Station",
+        "PAF Base Faisal",
+        "Laal Kothi",
+        "Karsaz",
+        "Nursery",
+        "FTC",
+        "Korangi Road",
+        "DHA Phase 1",
+        "Masjid e Ayesha",
+        "Clock Tower DHA",
+        "Dolmen Mall Clifton",
+      ],
+    },
+    {
+      "name": "EV-02",
+      "formal_name": "Electric Bus 2 (Bahria Town to Malir Halt)",
+      "route_km": "30 kms",
+      "no_stations": "10",
+      "stop_list": [
+        "Bahria Town",
+        "Damba Goth",
+        "Toll Plaza",
+        "Baqai University",
+        "Malir Cantt Gate 5",
+        "Malir Cantt Gate 6",
+        "Tank Chowk",
+        "Model Mor",
+        "Jinnah Ave",
+        "Malir Halt",
+      ],
+    },
+    {
+      "name": "EV-03",
+      "formal_name": "Electric Bus 3 (Malir Cantt Check Post 5 to Numaish)",
+      "route_km": "20 kms",
+      "no_stations": "10",
+      "stop_list": [
+        "Malir Cantt Check Post 5",
+        "Rim Jhim Tower",
+        "Safoora Chowrangi",
+        "Mausamiyat Chowrangi",
+        "Kamran Chowrangi",
+        "Darul Sehat Hospital",
+        "Johar Mor",
+        "Millennium Mall",
+        "Dalmia Road",
+        "Bahria University",
+        "National Stadium",
+        "Aga Khan Hospital",
+        "Liaquat National Hospital",
+        "PIB Colony",
+        "Jail Chowrangi",
+        "Dawood Engineering University",
+        "Islamia College",
+        "People Secretariat Chowrangi",
+        "Numaish",
+      ],
+    },
+    {
+      "name": "BRT Green Line",
+      "formal_name": "BRT Green Line (Power House Chowrangi to Numaish)",
+      "route_km": "18 kms",
+      "no_stations": "22",
+      "stop_list": [
+        "Abdullah Chowk",
+        "Surjani KDA",
+        "Karimi Chowrangi",
+        "4K Chowrangi",
+        "2 Minute Chowrangi",
+        "Road 2400",
+        "Power House Chowrangi",
+        "Road 4200",
+        "UP Mor",
+        "Nagan Chowrangi",
+        "Erum Shopping Mall",
+        "Jummah Bazaar",
+        "Five Star Chowrangi",
+        "Hyderi",
+        "Board Office",
+        "Annu Bhai Park",
+        "Enquiry Office",
+        "Nazimabad No. 1",
+        "Sanitary Market",
+        "Lasbela Chowk",
+        "Patel Para",
+        "Numaish",
+      ],
+    },
   ];
 
-  print("Enter your starting point:");
+  List<Map<String, dynamic>> users = [];
+
+  while (true) {
+    print("1. Register\n2. Plan Journey\n3. Exit");
+    String choice = getUserInput();
+
+    switch (choice) {
+      case '1':
+        registerUser(users);
+        break;
+      case '2':
+        if (users.isNotEmpty) {
+          planJourney(listOfBuses);
+        } else {
+          print("Please register before planning a journey.");
+        }
+        break;
+      case '3':
+        print("Exiting the application. Goodbye!");
+        exit(0);
+      default:
+        print("Invalid choice. Please enter 1, 2, or 3.");
+    }
+  }
+}
+
+void registerUser(List<Map<String, dynamic>> users) {
+
+  if (!isTravelingInKarachi()) {
+    print("Sorry, this application is for Karachi only. Exiting...");
+    exit(0);
+  }
+
+  print("Enter your username:");
+  String username = getUserInput();
+
+  print("Enter your password:");
+  String password = getUserInput();
+
+  users.add({'username': username, 'password': password});
+  print("User registered successfully!\nWelcome, $username!");
+}
+
+bool isTravelingInKarachi() {
+  print("Are you looking to travel in Karachi? (yes/no)");
+  String answer = getUserInput().toLowerCase();
+  return answer == 'yes';
+}
+
+void planJourney(List<Map<String, dynamic>> listOfBuses) {
+  print("Enter your initial location:");
   String startingPoint = getUserInput();
 
-  print("Enter your ending point:");
+  print("Enter your destination:");
   String endingPoint = getUserInput();
 
   startingPoint = startingPoint.toLowerCase();
@@ -279,14 +430,16 @@ void main() {
   if (buses.isEmpty) {
     print("No buses found for the given route.");
   } else {
+    print("***-----------------***");
     print("You can use the following buses:");
+    print("***-----------------***");
     buses.forEach((bus) {
       print("Bus Name: ${bus}");
       print("Formal Name: ${getBusInfo(listOfBuses, bus, 'formal_name')}");
       print("Route Kilometers: ${getBusInfo(listOfBuses, bus, 'route_km')}");
       print(
           "Number of Stations: ${getBusInfo(listOfBuses, bus, 'no_stations')}");
-      print("--------------");
+      print("***-----------------***");
     });
   }
   print("Thank You for your visit!");
